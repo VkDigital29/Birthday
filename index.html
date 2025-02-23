@@ -1,0 +1,77 @@
+<!DOCTYPE html><html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            background: linear-gradient(to right, #ffcccb, #ff6699);
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        h1 {
+            color: #ff4081;
+            font-size: 3em;
+            animation: bounce 1.5s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+        .balloons {
+            font-size: 50px;
+            animation: float 3s infinite alternate;
+        }
+        @keyframes float {
+            from { transform: translateY(0); }
+            to { transform: translateY(-20px); }
+        }
+        .button {
+            background-color: #ff4081;
+            color: white;
+            padding: 15px 25px;
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #d32f2f;
+        }
+        .message {
+            display: none;
+            font-size: 22px;
+            color: #ffffff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            animation: fadeIn 2s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 Happy Birthday! 🎂</h1>
+        <p class="balloons">🎈🎈🎈🎈🎈</p>
+        <button class="button" onclick="showMessage()">Click for a Surprise!</button>
+        <p id="message" class="message"></p>
+    </div>
+    <script>
+        function showMessage() {
+            const message = document.getElementById("message");
+            message.style.display = "block";
+            message.innerText = "Wishing you a day filled with endless joy, laughter, and happiness. May your dreams come true and your heart be filled with love and warmth. You are truly special, and today is a celebration of the wonderful person that you are. Happy Birthday! 🎁✨🎊";
+        }
+    </script>
+</body>
+</html>
