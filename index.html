@@ -31,6 +31,21 @@
             from { transform: translateY(0); }
             to { transform: translateY(-30px); }
         }
+        .carousel {
+            width: 60%;
+            margin: 20px auto;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+        }
+        .carousel img {
+            width: 100%;
+            display: none;
+            border-radius: 10px;
+        }
+        .carousel img.active {
+            display: block;
+        }
         .button {
             background-color: #ff4081;
             color: white;
@@ -59,17 +74,6 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        .confetti {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #ffeb3b;
-            top: -10px;
-            animation: fall 3s linear infinite;
-        }
-        @keyframes fall {
-            to { transform: translateY(100vh); }
-        }
     </style>
 </head>
 <body>
@@ -77,6 +81,11 @@
         <h1>🎉 Happy Birthday! 🎂</h1>
         <p class="balloons">🎈🎈🎈🎈🎈</p>
         <p class="cakes">🎂🎂🎂🎂🎂</p>
+        <div class="carousel">
+            <img src="image1.jpg" class="active">
+            <img src="image2.jpg">
+            <img src="image3.jpg">
+        </div>
         <button class="button" onclick="showMessage()">Click for a Surprise!</button>
         <p id="message" class="message"></p>
     </div>
@@ -96,6 +105,18 @@
         message.innerText = "Wishing you a day filled with love, joy, and all the happiness in the world. May your dreams come true, and may you always have a reason to smile. You are truly special, and today is a celebration of the wonderful person you are. May this year bring you new adventures, endless laughter, and memories that last a lifetime. Happy Birthday! 🎁✨🎊";
         createConfetti();
     }
+    
+    function startCarousel() {
+        let images = document.querySelectorAll(".carousel img");
+        let index = 0;
+        setInterval(() => {
+            images[index].classList.remove("active");
+            index = (index + 1) % images.length;
+            images[index].classList.add("active");
+        }, 3000);
+    }
+    
+    window.onload = startCarousel;
 </script>
 
 </body>
