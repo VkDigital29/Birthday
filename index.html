@@ -6,29 +6,30 @@
     <style>
         body {
             text-align: center;
-            background: linear-gradient(to right, #ffcccb, #ff6699);
-            font-family: Arial, sans-serif;
+            background: radial-gradient(circle, #ffcccb, #ff6699);
+            font-family: 'Arial', sans-serif;
             overflow: hidden;
         }
         .container {
             margin-top: 50px;
+            position: relative;
         }
         h1 {
             color: #ff4081;
-            font-size: 3em;
-            animation: bounce 1.5s infinite;
+            font-size: 4em;
+            animation: glow 1.5s infinite alternate;
         }
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ff4081; }
+            to { text-shadow: 0 0 30px #ff1053; }
         }
-        .balloons {
+        .balloons, .cakes {
             font-size: 50px;
-            animation: float 3s infinite alternate;
+            animation: float 3s infinite alternate ease-in-out;
         }
         @keyframes float {
             from { transform: translateY(0); }
-            to { transform: translateY(-20px); }
+            to { transform: translateY(-30px); }
         }
         .button {
             background-color: #ff4081;
@@ -42,6 +43,7 @@
         }
         .button:hover {
             background-color: #d32f2f;
+            transform: scale(1.1);
         }
         .message {
             display: none;
@@ -57,21 +59,44 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffeb3b;
+            top: -10px;
+            animation: fall 3s linear infinite;
+        }
+        @keyframes fall {
+            to { transform: translateY(100vh); }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>🎉 Happy Birthday! 🎂</h1>
         <p class="balloons">🎈🎈🎈🎈🎈</p>
+        <p class="cakes">🎂🎂🎂🎂🎂</p>
         <button class="button" onclick="showMessage()">Click for a Surprise!</button>
         <p id="message" class="message"></p>
     </div>
     <script>
-        function showMessage() {
-            const message = document.getElementById("message");
-            message.style.display = "block";
-            message.innerText = "Wishing you a day filled with endless joy, laughter, and happiness. May your dreams come true and your heart be filled with love and warmth. You are truly special, and today is a celebration of the wonderful person that you are. Happy Birthday! 🎁✨🎊";
-        }
-    </script>
+        function createConfetti() {
+            for (let i = 0; i < 100; i++) {
+                let confetti = document.createElement("div");
+                confetti.classList.add("confetti");
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + "s";
+                document.body.appendChild(confetti);
+                setTimeout(() => confetti.remove(), 5000);
+            }
+        }function showMessage() {
+        const message = document.getElementById("message");
+        message.style.display = "block";
+        message.innerText = "Wishing you a day filled with love, joy, and all the happiness in the world. May your dreams come true, and may you always have a reason to smile. You are truly special, and today is a celebration of the wonderful person you are. May this year bring you new adventures, endless laughter, and memories that last a lifetime. Happy Birthday! 🎁✨🎊";
+        createConfetti();
+    }
+</script>
+
 </body>
 </html>
