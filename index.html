@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surprise for You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff5733;
+        }
+        p {
+            font-size: 20px;
+            color: #333;
+        }
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Surprise 🎉</h1>
+    <p>Something special is here for you!</p>
+    <button class="btn" onclick="showMessage()">Click Me</button>
+    
+    <p id="hiddenMessage" style="display:none; font-size: 22px; font-weight: bold; color: #007bff;"></p>
+
+    <script>
+        function showMessage() {
+            document.getElementById("hiddenMessage").innerText = "Zindagi me kuch rishton ko ek naam dena mushkil hota hai,
+Kyunki woh sirf ek naam se badhkar hote hain...
+Tu sirf ek dost nahi, ek rishta hai jo har mod pe saath hai!
+
+Kabhi behen banke daanta,
+Kabhi guru banke raasta dikhaya,
+Kabhi bestie banke sunna,
+Aur kabhi woh bond diya jo duniya ke kisi bhi rishte se upar hai!
+
+Agar life ek kitab hai, toh tu uska woh chapter hai jo baar-baar padhna chahta hoon!
+Chahe GPAT ho, internal exams ho ya life ke bade sapne,
+Main hamesha tera saath dunga, jaise tune mera diya!
+Tu jo hai, bas waise hi rehna, kyunki tu perfect hai! 😊🔥";
+            document.getElementById("hiddenMessage").style.display = "block";
+        }
+    </script>
+
+</body>
+</html>
